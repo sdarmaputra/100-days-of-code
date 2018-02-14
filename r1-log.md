@@ -30,3 +30,38 @@ Object.defineProperty(component, 'props', {
 **Link(s) to Work:**
 - [Object.defineProperty() Experiment](https://codepen.io/sdarmaputra/pen/GQEgVP/)
 - [On Going Timer App](https://github.com/sdarmaputra/simple-timer)
+
+### R1D2 (February 14, 2018) :dolphin:
+**Progress:**
+- Experimenting Javascript Object
+
+**Lesson Learned:**
+- We can define property getter and setter in both way:
+```
+Object.defineProperty(component, 'props', {
+    get() {
+      // return props
+    },
+    set(newProps) {
+      // set props
+    }
+  })
+```
+or
+```
+const component = {
+    _props: {},
+    get props() {
+        return this._props
+    },
+    set props(newValue) {
+        this._props = newValue
+    }
+}
+```
+- If we only define getter then the property cannot be set, vice versa
+- A property without getter returns `undefined`
+
+**Link(s) to Work:**
+- [https://repl.it/@sdarmaputra/Object-Playground](https://repl.it/@sdarmaputra/Object-Playground)
+
