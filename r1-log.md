@@ -119,3 +119,27 @@ const component = {
 
 **Link(s) to Work:**
 - https://github.com/sdarmaputra/wwwid-feed
+
+
+### R1D4 (February 16, 2018) :monkey:
+**Progress:**
+- Refactoring [WWWID Feed](https://github.com/sdarmaputra/wwwid-feed)
+- Trying to separate components to make the code clearer and easy to understand
+- Creating styles using SASS
+- Generate HTML page using `html-webpack-plugin`
+- Extracting CSS into  a separated file using `extract-text-webpack-plugin`
+
+**Lesson Learned:**
+- Using component-based architecture for front-end project make our code clearer and easier to maintain and understand
+- But, sometimes if we do inappropriate separation, we can mess up our project structure and make our code more confusing to follow
+- It's fine to write a very long component code at the first time because sometimes we haven't realized if that component needs to be separated or not. We need to iterate several times to find the best separation strategy for our components. Again, writing test first helps us to keep our code on track and won't mess anything up.
+- Sometimes `webpack-dev-server` failed to use Hot Module Replacement (HMR) and I haven't found the causes yet. But, some folks suggest to start up `webpack-dev-server` like this `webpack-dev-server --hot --inline` **rather than** using this code inside webpack configuration:
+    ```
+    devServer: {
+        //some configs
+        hot: true
+    }
+    ```
+
+**Link(s) to Work:**
+- https://github.com/sdarmaputra/wwwid-feed
