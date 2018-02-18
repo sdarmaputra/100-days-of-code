@@ -143,3 +143,74 @@ const component = {
 
 **Link(s) to Work:**
 - https://github.com/sdarmaputra/wwwid-feed
+
+
+### R1D5 (February 17, 2018)
+**Progress:**
+- Experimenting with `window.location` and `RegEx`
+
+**Lesson Learned:**
+- We can use `location.hash` to obtain hash URL
+- We can make use of this location hash to build custom routing mechanism for our Single Page App
+- Using `RegEx` to process our URL and redirect into the right component is pretty awesome
+- Here's some `RegEx` pattern that I found usefull: `/{(.*?)}/g` to find all string inside curly braces (both curly braces included). We can use this pattern for example to find parameter name within a URL pattern like this `url/{param1}/{param2}`
+ 
+ **Link(s) to Work:**
+- https://github.com/sdarmaputra/wwwid-feed
+
+### R1D6 (February 18, 2018)
+**Progress:**
+- Separate my custom routing mechanism into a reusable module
+- More experiments with `RegEx`
+- Finishing basic app flow of [WWWID Reader](https://github.com/sdarmaputra/wwwid-feed)
+
+**Lesson Learned:**
+- JSDOM haven't implemented `scrollTo` function yet,  so I have to hack it a bit to hide it's error message saying that function hasn't implement yet. Here's what I've done so far :sweat_smile: :
+```
+global.window.scrollTo = () => ({  })
+```
+- If we want to create an object that can listen to its property changes, we have to duplicate all of the properties into something else then define setter and getter. For example, I have a `store` object and I want to listen for property changes. So I copy all property into \_property, then define new property that accesses \_property:
+```
+Object.keys(store).map(key => {
+    store['_'+key] = store[key]
+    Object.defineProperty(store, key, {
+        get: function() {
+            console.log('get '+key)
+            return this['_'+key]
+        },
+        set: function(value) {
+            console.log('update '+key)
+            this['_'+key] = value
+            processChange()
+        }
+    })
+})
+
+```
+- Several usefull CSS styles to beautify our `<pre>` tag:
+```
+pre {
+    background: #efefef;
+    margin: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding: $baseline * 0.3 $baseline;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+```
+- Using `word-wrap: break-word;` inside our element is sometimes usefull, for example when we have a very long URL that overflows our element, we can break that long string and wrap it into new line
+
+ **Link(s) to Work:**
+- https://github.com/sdarmaputra/wwwid-feed
+
+
+### R1DX (MM DD, 2018)
+**Progress:**
+- Do semething
+
+**Lesson Learned:**
+- Something awesome
+
+**Link(s) to Work:**
+- Something aweseome
